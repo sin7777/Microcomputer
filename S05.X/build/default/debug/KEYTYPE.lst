@@ -1,0 +1,2416 @@
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 #include "p16F1786.inc"
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Mar 21 2016
+                      00005 ;  MPASM PIC16F1786 processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2016 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+                      02652         LIST
+                      00002     
+                      00003 ; CONFIG1
+                      00004 ; __config 0xFFFC
+8007   3FE4           00005  __CONFIG _CONFIG1, _FOSC_INTOSC & _WDTE_OFF & _PWRTE_OFF & _MCLRE_ON & _CP_OFF & _CPD_OFF & _BOREN_ON &
+                             _CLKOUTEN_OFF & _IESO_ON & _FCMEN_ON
+                      00006 ; CONFIG2
+                      00007 ; __config 0xFFFF
+8008   3FFF           00008  __CONFIG _CONFIG2, _WRT_OFF & _VCAPEN_OFF & _PLLEN_ON & _STVREN_ON & _BORV_LO & _LPBOR_OFF & _LVP_ON
+                      00009     ; TODO INSERT CONFIG CODE HERE USING CONFIG BITS GENERATOR
+                      00010     UDATA_SHR
+Warning[207]: Found label after column 1. (KEY_FINAL)
+0000                  00011  KEY_FINAL res 1h  ;??
+Warning[207]: Found label after column 1. (KEY_BEFORE)
+0001                  00012  KEY_BEFORE res 1h ;?????????
+Warning[207]: Found label after column 1. (STATE)
+0002                  00013  STATE res 1h   ;??
+Warning[207]: Found label after column 1. (STATE_BEFORE)
+0003                  00014  STATE_BEFORE res 1h;?????????
+Warning[207]: Found label after column 1. (M_CNT)
+0004                  00015  M_CNT res 1h   ;??????
+Warning[207]: Found label after column 1. (N_CNT)
+0005                  00016  N_CNT res 1h   ;??????
+Warning[207]: Found label after column 1. (R_LONG)
+0006                  00017  R_LONG res 1h  ;?????
+Warning[207]: Found label after column 1. (L1_LONG)
+0007                  00018  L1_LONG res 1h   ;?????
+Warning[207]: Found label after column 1. (L2_LONG)
+0008                  00019  L2_LONG res 1h    ;?????
+Warning[207]: Found label after column 1. (L3_LONG)
+0009                  00020  L3_LONG RES 1h    ;?????
+Warning[207]: Found label after column 1. (TYPE)
+000A                  00021  TYPE res 1h   ;????
+Warning[207]: Found label after column 1. (TYPE_BEFORE)
+000B                  00022  TYPE_BEFORE res 1h
+Warning[207]: Found label after column 1. (CURRENT_COUNT)
+000C                  00023  CURRENT_COUNT RES 1h   ;??????main????10???
+                      00024  
+                      00025  udata_ovr
+0000                  00026 COUNT0 RES 1H
+0001                  00027 COUNT1 RES 1H
+0002                  00028 COUNT2 RES 1H
+0003                  00029 COUNT3 RES 1H
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0004                  00030 COUNT4 RES 1H
+0005                  00031 COUNT5 RES 1H
+0006                  00032 COUNT6 RES 1H
+0007                  00033 COUNT7 RES 1H
+0008                  00034 COUNT8 RES 1H
+0009                  00035 COUNT9 RES 1H
+                      00036 ;?? 
+000A                  00037 DISPLAY_ONE
+000A                  00038 DISPLAY_TWO
+000A                  00039 DISPLAY_THREE
+000A                  00040 DISPLAY_FOUR
+                      00041  
+                      00042 
+                      00043 RES_VECT  CODE    0x0000            ; processor reset vector
+0000   2???           00044     GOTO    INT                   ; go to beginning of program
+                      00045 
+                      00046 ; TODO ADD INTERRUPTS HERE IF USED
+                      00047 
+                      00048 MAIN_PROG CODE                      ; let linker place main program
+                      00049 
+                      00050  
+                      00051     
+0000                  00052 TABLENUM:
+0000   0782           00053     ADDWF PCL,F
+0001   3401           00054     RETLW B'00000001'
+0002   344F           00055     RETLW B'01001111'
+0003   3412           00056     RETLW B'00010010'
+0004   3406           00057     RETLW B'00000110'
+0005   344C           00058     RETLW B'01001100'
+0006   3424           00059     RETLW B'00100100'
+0007   3420           00060     RETLW B'00100000'
+0008   340F           00061     RETLW B'00001111'
+0009   3400           00062     RETLW B'00000000'
+000A   3404           00063     RETLW B'00000100'
+                      00064 
+000B                  00065 INT
+000B   306B           00066  movlw b'01101011'
+000C   0021           00067  banksel OSCCON
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+000D   0099           00068  movwf OSCCON
+000E   0020           00069  banksel TMR0
+000F   30C0           00070  movlw b'11000000'
+0010   0095           00071  movwf TMR0 
+0011   0021           00072  banksel OPTION_REG
+0012   3007           00073  movlw b'00000111'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0013   0095           00074  movwf OPTION_REG
+0014   0020           00075  banksel INTCON
+0015   30A0           00076  movlw b'10100000'
+0016   008B           00077  movwf INTCON 
+                      00078  
+0017   3007           00079  MOVLW 0x07
+0018   00??           00080  MOVWF KEY_FINAL
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0019   3007           00081  MOVLW 0x07
+001A   00??           00082  MOVWF KEY_BEFORE
+001B   3001           00083  MOVLW 0x01
+001C   00??           00084  MOVWF STATE
+001D   3000           00085  MOVLW 0x00
+001E   00??           00086  MOVWF STATE_BEFORE
+                      00087  
+001F   3080           00088  MOVLW 0x80
+0020   00??           00089  MOVWF M_CNT
+0021   3000           00090  MOVLW 0x00
+0022   00??           00091  MOVWF N_CNT
+0023   30FF           00092  MOVLW 0xFF
+0024   00??           00093  MOVWF R_LONG
+                      00094  
+0025   300A           00095  MOVLW 0x0A
+0026   00??           00096  MOVWF L3_LONG
+0027   3014           00097  MOVLW 0x14
+0028   00??           00098  MOVWF L1_LONG
+0029   308E           00099  MOVLW 0x8E
+002A   00??           00100  MOVWF L2_LONG
+                      00101  
+002B   3004           00102  MOVLW 0x04
+002C   00??           00103  MOVWF TYPE
+002D   3004           00104  MOVLW 0x04
+002E   00??           00105  MOVWF TYPE_BEFORE
+002F   3001           00106  MOVLW 0x01
+0030   00??           00107  MOVWF CURRENT_COUNT
+                      00108  
+0031   2???           00109  GOTO START
+                      00110  
+                      00111 ;KEY????
+0032                  00112 CHANGE_KEY
+                      00113  ;?KEY????KEY_BEFORE
+0032   08??           00114  MOVF KEY_FINAL,0
+0033   00??           00115  MOVWF KEY_BEFORE
+                      00116  
+                      00117  
+                      00118  ;??STATE_BEFORE??1
+0034   3001           00119  MOVLW B'00000001'
+0035   00??           00120  MOVWF STATE_BEFORE
+                      00121  ;????????
+0036   3080           00122  MOVLW 0x80
+0037   00??           00123  MOVWF M_CNT
+0038   3000           00124  MOVLW 0x00
+0039   00??           00125  MOVWF N_CNT
+003A   30FF           00126  MOVLW 0xFF
+003B   00??           00127  MOVWF R_LONG
+003C   0008           00128  RETURN
+                      00129  
+                      00130 ; no change key
+003D                  00131 NO_CHANGE_KEY
+                      00132  ;?STATE?STATE_BEFORE????????????????
+003D   08??           00133  MOVF STATE,0
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+003E   06??           00134  XORWF STATE_BEFORE,0
+003F   3C00           00135  SUBLW B'00000000'
+0040   1C03           00136  BTFSS STATUS,0
+0041   2???           00137  GOTO INEQUAL
+0042   2???           00138  GOTO EQUAL
+Warning[207]: Found label after column 1. (INEQUAL)
+0043                  00139     INEQUAL
+0043   08??           00140         MOVF STATE,0
+0044   3C00           00141         SUBLW B'00000000'
+0045   1C03           00142         BTFSS STATUS,0
+0046   2???           00143         GOTO ZERO_TO_ONE  ;0 -> 1
+0047   2???           00144         GOTO ONE_TO_ZERO  ;1 -> 0
+                      00145         
+Warning[207]: Found label after column 1. (EQUAL)
+0048                  00146     EQUAL 
+0048   08??           00147         MOVF STATE,0
+0049   3C00           00148         SUBLW B'00000000'
+004A   1C03           00149         BTFSS STATUS,0
+004B   2???           00150         GOTO ONE_TO_ONE    ;1=1,1 -> 1
+004C   2???           00151         GOTO ZERO_TO_ZERO   ;0=0,0 -> 0
+                      00152         
+Warning[207]: Found label after column 1. (ONE_TO_ZERO)
+004D                  00153     ONE_TO_ZERO
+Message[305]: Using default destination of 1 (file).
+004D   0A??           00154         INCF N_CNT
+004E   2???           00155         GOTO NO_CHANGE_KEL_END ;?1?0?????????
+                      00156         
+Warning[207]: Found label after column 1. (ZERO_TO_ONE)
+004F                  00157     ZERO_TO_ONE
+Message[305]: Using default destination of 1 (file).
+004F   0A??           00158         INCF M_CNT
+0050   3000           00159         MOVLW B'00000000'
+0051   00??           00160         MOVWF R_LONG  ;?????????
+0052   2???           00161         GOTO NO_CHANGE_KEL_END ;?0?1?????????
+                      00162         
+Warning[207]: Found label after column 1. (ZERO_TO_ZERO)
+0053                  00163     ZERO_TO_ZERO
+Message[305]: Using default destination of 1 (file).
+0053   0A??           00164         INCF N_CNT ;N_CNT++
+0054   08??           00165         MOVF N_CNT,0 ;??N_CNT?????2
+0055   3C02           00166         SUBLW B'00000010'
+0056   1803           00167         BTFSC STATUS,0
+0057   2???           00168         GOTO CLEAR_M_CNT;M_CNT=0
+0058   2???           00169         GOTO ZERO_CONTINUE
+                      00170         
+Warning[207]: Found label after column 1. (CLEAR_M_CNT)
+0059                  00171         CLEAR_M_CNT
+0059   3000           00172             MOVLW B'00000000'
+005A   00??           00173             MOVWF M_CNT
+005B   2???           00174             GOTO NO_CHANGE_KEL_END
+                      00175             
+Warning[207]: Found label after column 1. (ZERO_CONTINUE)
+005C                  00176         ZERO_CONTINUE
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+005C   08??           00177             MOVF R_LONG,0  ;??R<L3,
+005D   02??           00178             SUBWF L3_LONG,0
+005E   1803           00179             BTFSC STATUS,0
+005F   2???           00180             GOTO DOUBLE_PRESS;?????
+0060   2???           00181             GOTO ZERO_CONTINUE_CONTIUNE;??
+                      00182             
+Warning[207]: Found label after column 1. (DOUBLE_PRESS)
+0061                  00183         DOUBLE_PRESS
+0061   3001           00184             MOVLW B'00000001'
+0062   00??           00185             MOVWF TYPE  ;01????
+0063   0A??           00186             INCF L2_LONG,0  ;??N_CNT=L2_LONG+1
+0064   00??           00187             MOVWF N_CNT
+0065   2???           00188             GOTO NO_CHANGE_KEL_END
+                      00189             
+Warning[207]: Found label after column 1. (ZERO_CONTINUE_CONTIUNE)
+0066                  00190         ZERO_CONTINUE_CONTIUNE
+0066   08??           00191             MOVF L2_LONG,0 ;??L2 = N ?
+0067   06??           00192             XORWF N_CNT,0
+0068   3C00           00193             SUBLW B'0000000'
+0069   1C03           00194             BTFSS STATUS,0
+006A   2???           00195             GOTO NO_CHANGE_KEL_END  ;??
+006B   2???           00196             GOTO LONG_PRESS  ;????? ;??
+                      00197             
+Warning[207]: Found label after column 1. (LONG_PRESS)
+006C                  00198         LONG_PRESS
+006C   3002           00199             MOVLW B'00000010'
+006D   00??           00200             MOVWF TYPE ;10????
+006E   2???           00201             GOTO NO_CHANGE_KEL_END
+                      00202  
+Warning[207]: Found label after column 1. (ONE_TO_ONE)
+006F                  00203     ONE_TO_ONE
+Message[305]: Using default destination of 1 (file).
+006F   0A??           00204         INCF M_CNT ;M_CNT++
+Message[305]: Using default destination of 1 (file).
+0070   0A??           00205         INCF R_LONG ;R_LONG++
+0071   08??           00206         MOVF M_CNT,0 ;??M_CNT?????2
+0072   3C02           00207         SUBLW B'00000010'
+0073   1803           00208         BTFSC STATUS,0
+0074   2???           00209         GOTO CLEAR_N_CNT;N_CNT=0
+0075   2???           00210         GOTO ONE_CONTINUE
+                      00211         
+Warning[207]: Found label after column 1. (CLEAR_N_CNT)
+0076                  00212         CLEAR_N_CNT
+0076   3000           00213             MOVLW B'00000000' ;??N_CNT
+0077   00??           00214             MOVWF N_CNT
+0078   2???           00215             GOTO NO_CHANGE_KEL_END
+                      00216             
+Warning[207]: Found label after column 1. (ONE_CONTINUE)
+0079                  00217         ONE_CONTINUE
+0079   08??           00218             MOVF L2_LONG,0  ;??L2<N_CNT,
+007A   02??           00219             SUBWF N_CNT,0
+007B   1803           00220             BTFSC STATUS,0
+007C   2???           00221             GOTO ADD_M_CNT;??M=L1+1
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE  6
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+007D   2???           00222             GOTO ONE_CONTINUE_CONTIUNE;??
+                      00223             
+Warning[207]: Found label after column 1. (ADD_M_CNT)
+007E                  00224         ADD_M_CNT
+007E   0A??           00225             INCF L1_LONG,0 ;??M=L1+1
+007F   00??           00226             MOVWF M_CNT
+0080   2???           00227             GOTO ONE_CONTINUE_CONTIUNE;??
+                      00228           
+Warning[207]: Found label after column 1. (ONE_CONTINUE_CONTIUNE)
+0081                  00229         ONE_CONTINUE_CONTIUNE
+0081   08??           00230             MOVF L1_LONG,0 ;??L1 = M ?
+0082   06??           00231             XORWF M_CNT,0
+0083   3C00           00232             SUBLW B'0000000'
+0084   1C03           00233             BTFSS STATUS,0
+0085   2???           00234             GOTO NO_CHANGE_KEL_END  ;??
+0086   2???           00235             GOTO SHORT_PRESS  ;????? ;??
+                      00236             
+Warning[207]: Found label after column 1. (SHORT_PRESS)
+0087                  00237         SHORT_PRESS
+0087   3000           00238             MOVLW B'0000000'
+0088   00??           00239             MOVWF TYPE
+0089   2???           00240             GOTO NO_CHANGE_KEL_END
+                      00241  
+Warning[207]: Found label after column 1. (NO_CHANGE_KEL_END)
+008A                  00242  NO_CHANGE_KEL_END
+                      00243  ;??STATE_BEFORE
+008A   08??           00244  MOVF STATE,0
+008B   00??           00245  MOVWF STATE_BEFORE
+                      00246  
+008C   0008           00247  RETURN
+                      00248  
+                      00249 
+008D                  00250 COUNT_CHANGE
+                      00251  ;??TYPE????
+008D   08??           00252  MOVF TYPE,0
+008E   06??           00253  XORWF TYPE_BEFORE,0
+008F   3C00           00254  SUBLW B'00000000'
+0090   1C03           00255  BTFSS STATUS,0
+0091   2???           00256  CALL CHANGE_TYPE;change key ??
+0092   2???           00257  GOTO COUNT_CHANGE_END;NO change ??
+                      00258  
+Warning[207]: Found label after column 1. (CHANGE_TYPE)
+0093                  00259     CHANGE_TYPE
+                      00260          ;??KEY???count
+0093   08??           00261          MOVF KEY_FINAL,0
+0094   3C00           00262          SUBLW B'00000000'
+0095   1803           00263          BTFSC STATUS,0
+0096   2???           00264          CALL COUNT_ONE;NO change ??
+                      00265 ;        CALL CHANGE_KEY;change key ??
+0097   08??           00266          MOVF KEY_FINAL,0
+0098   3C01           00267          SUBLW B'00000001'
+0099   1803           00268          BTFSC STATUS,0
+009A   2???           00269          CALL COUNT_TWO;NO change ??
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE  7
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+009B   08??           00270          MOVF KEY_FINAL,0
+009C   3C02           00271          SUBLW B'00000010'
+009D   1803           00272          BTFSC STATUS,0
+009E   2???           00273          CALL COUNT_THREE;NO change ??
+009F   08??           00274          MOVF KEY_FINAL,0
+00A0   3C03           00275          SUBLW B'00000011'
+00A1   1803           00276          BTFSC STATUS,0
+00A2   2???           00277          CALL COUNT_FOUR;NO change ??
+00A3   08??           00278          MOVF KEY_FINAL,0
+00A4   3C04           00279          SUBLW B'00000100'
+00A5   1803           00280          BTFSC STATUS,0
+00A6   2???           00281          CALL COUNT_FIVE;NO change ??
+00A7   08??           00282          MOVF KEY_FINAL,0
+00A8   3C05           00283          SUBLW B'00000101'
+00A9   1803           00284          BTFSC STATUS,0
+00AA   2???           00285          CALL COUNT_SIX;NO change ??
+00AB   08??           00286          MOVF KEY_FINAL,0
+00AC   3C06           00287          SUBLW B'00000110'
+00AD   1803           00288          BTFSC STATUS,0
+00AE   2???           00289          CALL COUNT_SEVEN;NO change ??
+00AF   08??           00290          MOVF KEY_FINAL,0
+00B0   3C07           00291          SUBLW B'00000111'
+00B1   1803           00292          BTFSC STATUS,0
+00B2   2???           00293          CALL COUNT_EIGHT;NO change ??
+00B3   08??           00294          MOVF KEY_FINAL,0
+00B4   3C08           00295          SUBLW B'00001000'
+00B5   1803           00296          BTFSC STATUS,0
+00B6   2???           00297          CALL COUNT_NINE;NO change ??
+00B7   08??           00298          MOVF KEY_FINAL,0
+00B8   3C09           00299          SUBLW B'00001001'
+00B9   1803           00300          BTFSC STATUS,0
+00BA   2???           00301          CALL COUNT_TEN;NO change ??
+00BB   3000           00302          MOVLW B'00000000' ;KEY=FF
+00BC   00??           00303          MOVWF CURRENT_COUNT
+00BD   2???           00304          GOTO COUNT_CHANGE_END  ;KEY???0-9
+                      00305          
+Warning[207]: Found label after column 1. (COUNT_ONE)
+00BE                  00306          COUNT_ONE
+Message[305]: Using default destination of 1 (file).
+00BE   0A??           00307             INCF COUNT0
+00BF   08??           00308             MOVF COUNT0,0
+00C0   00??           00309             MOVWF CURRENT_COUNT
+00C1   2???           00310             GOTO COUNT_CHANGE_END
+Warning[207]: Found label after column 1. (COUNT_TWO)
+00C2                  00311          COUNT_TWO
+Message[305]: Using default destination of 1 (file).
+00C2   0A??           00312             INCF COUNT1
+00C3   08??           00313             MOVF COUNT1,0
+00C4   00??           00314             MOVWF CURRENT_COUNT
+00C5   2???           00315             GOTO COUNT_CHANGE_END
+Warning[207]: Found label after column 1. (COUNT_THREE)
+00C6                  00316          COUNT_THREE
+Message[305]: Using default destination of 1 (file).
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00C6   0A??           00317             INCF COUNT2
+00C7   08??           00318             MOVF COUNT2,0
+00C8   00??           00319             MOVWF CURRENT_COUNT
+00C9   2???           00320             GOTO COUNT_CHANGE_END
+Warning[207]: Found label after column 1. (COUNT_FOUR)
+00CA                  00321          COUNT_FOUR
+Message[305]: Using default destination of 1 (file).
+00CA   0A??           00322             INCF COUNT3
+00CB   08??           00323             MOVF COUNT3,0
+00CC   00??           00324             MOVWF CURRENT_COUNT
+00CD   2???           00325             GOTO COUNT_CHANGE_END
+Warning[207]: Found label after column 1. (COUNT_FIVE)
+00CE                  00326          COUNT_FIVE
+Message[305]: Using default destination of 1 (file).
+00CE   0A??           00327             INCF COUNT4
+00CF   08??           00328             MOVF COUNT4,0
+00D0   00??           00329             MOVWF CURRENT_COUNT
+00D1   2???           00330             GOTO COUNT_CHANGE_END
+Warning[207]: Found label after column 1. (COUNT_SIX)
+00D2                  00331          COUNT_SIX
+Message[305]: Using default destination of 1 (file).
+00D2   0A??           00332             INCF COUNT5
+00D3   08??           00333             MOVF COUNT5,0
+00D4   00??           00334             MOVWF CURRENT_COUNT
+00D5   2???           00335             GOTO COUNT_CHANGE_END
+Warning[207]: Found label after column 1. (COUNT_SEVEN)
+00D6                  00336          COUNT_SEVEN
+Message[305]: Using default destination of 1 (file).
+00D6   0A??           00337             INCF COUNT6
+00D7   08??           00338             MOVF COUNT6,0
+00D8   00??           00339             MOVWF CURRENT_COUNT
+00D9   2???           00340             GOTO COUNT_CHANGE_END
+Warning[207]: Found label after column 1. (COUNT_EIGHT)
+00DA                  00341          COUNT_EIGHT
+Message[305]: Using default destination of 1 (file).
+00DA   0A??           00342             INCF COUNT7
+00DB   08??           00343             MOVF COUNT7,0
+00DC   00??           00344             MOVWF CURRENT_COUNT
+00DD   2???           00345             GOTO COUNT_CHANGE_END
+Warning[207]: Found label after column 1. (COUNT_NINE)
+00DE                  00346          COUNT_NINE
+Message[305]: Using default destination of 1 (file).
+00DE   0A??           00347             INCF COUNT8
+00DF   08??           00348             MOVF COUNT8,0
+00E0   00??           00349             MOVWF CURRENT_COUNT
+00E1   2???           00350             GOTO COUNT_CHANGE_END
+Warning[207]: Found label after column 1. (COUNT_TEN)
+00E2                  00351          COUNT_TEN
+Message[305]: Using default destination of 1 (file).
+00E2   0A??           00352             INCF COUNT9
+00E3   08??           00353             MOVF COUNT9,0
+00E4   00??           00354             MOVWF CURRENT_COUNT
+00E5   2???           00355             GOTO COUNT_CHANGE_END
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE  9
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00356          
+Warning[207]: Found label after column 1. (COUNT_CHANGE_END)
+00E6                  00357  COUNT_CHANGE_END
+00E6   0008           00358  RETURN
+                      00359  ;????
+Warning[207]: Found label after column 1. (DISPLAY)
+00E7                  00360  DISPLAY
+00E7   08??           00361      MOVF KEY_FINAL,0
+00E8   3CFF           00362      SUBLW B'11111111'
+00E9   1C03           00363      BTFSS STATUS,0
+00EA   2???           00364      CALL DISPALY_KEY;change  ??
+00EB   2???           00365      CALL LIGHTNING;NO change ??
+                      00366      
+Warning[207]: Found label after column 1. (LIGHTNING)
+00EC                  00367      LIGHTNING
+00EC   30FE           00368         MOVLW B'11111110'
+00ED   00??           00369         MOVWF DISPLAY_ONE
+00EE   00??           00370         MOVWF DISPLAY_TWO
+00EF   00??           00371         MOVWF DISPLAY_THREE
+00F0   00??           00372         MOVWF DISPLAY_FOUR
+00F1   2???           00373         GOTO DISPALY_END
+                      00374      
+Warning[207]: Found label after column 1. (DISPALY_KEY)
+00F2                  00375      DISPALY_KEY
+                      00376         ;???
+Message[305]: Using default destination of 1 (file).
+00F2   08??           00377         MOVF KEY_FINAL
+00F3   2???           00378         CALL TABLENUM
+00F4   00??           00379         MOVWF DISPLAY_ONE
+                      00380         ;???
+Message[305]: Using default destination of 1 (file).
+00F5   08??           00381         MOVF TYPE
+00F6   2???           00382         CALL TABLENUM
+00F7   00??           00383         MOVWF DISPLAY_TWO
+                      00384         ;????
+Message[305]: Using default destination of 1 (file).
+00F8   08??           00385         MOVF CURRENT_COUNT
+00F9   3907           00386         ANDLW B'00000111'
+00FA   2???           00387         CALL TABLENUM
+00FB   00??           00388         MOVWF DISPLAY_FOUR
+                      00389         
+00FC   36??           00390         LSRF CURRENT_COUNT,1
+00FD   36??           00391         LSRF CURRENT_COUNT,1
+00FE   36??           00392         LSRF CURRENT_COUNT,1
+Message[305]: Using default destination of 1 (file).
+00FF   08??           00393         MOVF CURRENT_COUNT
+0100   3907           00394         ANDLW B'00000111'
+0101   2???           00395         CALL TABLENUM
+0102   00??           00396         MOVWF DISPLAY_THREE
+                      00397         
+0103   2???           00398         GOTO DISPALY_END
+                      00399      
+0104                  00400 DISPALY_END
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 10
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0104   0008           00401  RETURN
+                      00402     
+                      00403  
+0105                  00404 START
+Warning[207]: Found label after column 1. (loop)
+0105                  00405  loop
+                      00406  ;??key????
+0105   08??           00407  MOVF KEY_FINAL,0
+0106   06??           00408  XORWF KEY_BEFORE,0
+0107   3C00           00409  SUBLW B'00000000'
+0108   1C03           00410  BTFSS STATUS,0
+0109   2???           00411  CALL CHANGE_KEY;change key
+010A   2???           00412  CALL NO_CHANGE_KEY;NO change
+                      00413  
+                      00414  ;??type????????????count
+010B   2???           00415  CALL COUNT_CHANGE
+                      00416  
+010C   2???           00417  CALL DISPLAY;????
+                      00418  
+010D   2???           00419  goto loop
+                      00420  
+                      00421  
+                      00422 
+3FE4 3FFF             00423     END
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 11
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ABDEN                             00000000
+ABDOVF                            00000007
+ACKDT                             00000005
+ACKEN                             00000004
+ACKSTAT                           00000006
+ACKTIM                            00000007
+ADCON0                            0000009D
+ADCON1                            0000009E
+ADCON2                            0000009F
+ADCS0                             00000004
+ADCS1                             00000005
+ADCS2                             00000006
+ADD0                              00000000
+ADD1                              00000001
+ADD2                              00000002
+ADD3                              00000003
+ADD4                              00000004
+ADD5                              00000005
+ADD6                              00000006
+ADD7                              00000007
+ADDEN                             00000003
+ADD_M_CNT                         0000007E
+ADFM                              00000007
+ADFVR0                            00000000
+ADFVR1                            00000001
+ADGO                              00000001
+ADIE                              00000006
+ADIF                              00000006
+ADNREF                            00000002
+ADON                              00000000
+ADPREF0                           00000000
+ADPREF1                           00000001
+ADRES                             0000009B
+ADRESH                            0000009C
+ADRESL                            0000009B
+ADRMD                             00000007
+AHEN                              00000001
+ANSA0                             00000000
+ANSA1                             00000001
+ANSA2                             00000002
+ANSA3                             00000003
+ANSA4                             00000004
+ANSA5                             00000005
+ANSA7                             00000007
+ANSB0                             00000000
+ANSB1                             00000001
+ANSB2                             00000002
+ANSB3                             00000003
+ANSB4                             00000004
+ANSB5                             00000005
+ANSB6                             00000006
+ANSELA                            0000018C
+ANSELB                            0000018D
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 12
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+APFCON                            0000011D
+APFCON0                           0000011D
+APFCON1                           0000011D
+APFCON2                           0000011C
+BAUD1CON                          0000019F
+BAUDCON                           0000019F
+BAUDCON1                          0000019F
+BAUDCTL                           0000019F
+BAUDCTL1                          0000019F
+BCL1IE                            00000003
+BCL1IF                            00000003
+BF                                00000000
+BOEN                              00000004
+BORCON                            00000116
+BORFS                             00000006
+BORRDY                            00000000
+BRG16                             00000003
+BRGH                              00000002
+BSR                               00000008
+BSR0                              00000000
+BSR1                              00000001
+BSR2                              00000002
+BSR3                              00000003
+BSR4                              00000004
+BSR_SHAD                          00000FE6
+BUF0                              00000000
+BUF1                              00000001
+BUF2                              00000002
+BUF3                              00000003
+BUF4                              00000004
+BUF5                              00000005
+BUF6                              00000006
+BUF7                              00000007
+C                                 00000000
+C1HYS                             00000001
+C1IE                              00000005
+C1IF                              00000005
+C1INTN                            00000006
+C1INTP                            00000007
+C1NCH0                            00000000
+C1NCH1                            00000001
+C1NCH2                            00000002
+C1OE                              00000005
+C1ON                              00000007
+C1OUT                             00000006
+C1PCH0                            00000003
+C1PCH1                            00000004
+C1PCH2                            00000005
+C1POL                             00000004
+C1SP                              00000002
+C1SYNC                            00000000
+C1ZLF                             00000003
+C2HYS                             00000001
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 13
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C2IE                              00000006
+C2IF                              00000006
+C2INTN                            00000006
+C2INTP                            00000007
+C2NCH0                            00000000
+C2NCH1                            00000001
+C2NCH2                            00000002
+C2OE                              00000005
+C2ON                              00000007
+C2OUT                             00000006
+C2OUTSEL                          00000007
+C2PCH0                            00000003
+C2PCH1                            00000004
+C2PCH2                            00000005
+C2POL                             00000004
+C2SP                              00000002
+C2SYNC                            00000000
+C2ZLF                             00000003
+C3HYS                             00000001
+C3IE                              00000001
+C3IF                              00000001
+C3INTN                            00000006
+C3INTP                            00000007
+C3NCH0                            00000000
+C3NCH1                            00000001
+C3NCH2                            00000002
+C3OE                              00000005
+C3ON                              00000007
+C3OUT                             00000006
+C3PCH0                            00000003
+C3PCH1                            00000004
+C3PCH2                            00000005
+C3POL                             00000004
+C3SP                              00000002
+C3SYNC                            00000000
+C3ZLF                             00000003
+C4HYS                             00000001
+C4IE                              00000002
+C4IF                              00000002
+C4INTN                            00000006
+C4INTP                            00000007
+C4NCH0                            00000000
+C4NCH1                            00000001
+C4NCH2                            00000002
+C4OE                              00000005
+C4ON                              00000007
+C4OUT                             00000006
+C4PCH0                            00000003
+C4PCH1                            00000004
+C4PCH2                            00000005
+C4POL                             00000004
+C4SP                              00000002
+C4SYNC                            00000000
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 14
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C4ZLF                             00000003
+CCP1CON                           00000293
+CCP1IE                            00000002
+CCP1IF                            00000002
+CCP1M0                            00000000
+CCP1M1                            00000001
+CCP1M2                            00000002
+CCP1M3                            00000003
+CCP1SEL                           00000006
+CCP2CON                           0000029A
+CCP2IE                            00000000
+CCP2IF                            00000000
+CCP2M0                            00000000
+CCP2M1                            00000001
+CCP2M2                            00000002
+CCP2M3                            00000003
+CCP2SEL                           00000000
+CCP3CON                           00000313
+CCP3IE                            00000004
+CCP3IF                            00000004
+CCP3M0                            00000000
+CCP3M1                            00000001
+CCP3M2                            00000002
+CCP3M3                            00000003
+CCP3SEL                           00000000
+CCPR1                             00000291
+CCPR1H                            00000292
+CCPR1L                            00000291
+CCPR2                             00000298
+CCPR2H                            00000299
+CCPR2L                            00000298
+CCPR3                             00000311
+CCPR3H                            00000312
+CCPR3L                            00000311
+CDAFVR0                           00000002
+CDAFVR1                           00000003
+CFGS                              00000006
+CHANGE_KEY                        00000032
+CHANGE_TYPE                       00000093
+CHS0                              00000002
+CHS1                              00000003
+CHS2                              00000004
+CHS3                              00000005
+CHS4                              00000006
+CHSN0                             00000000
+CHSN1                             00000001
+CHSN2                             00000002
+CHSN3                             00000003
+CKE                               00000006
+CKP                               00000004
+CLEAR_M_CNT                       00000059
+CLEAR_N_CNT                       00000076
+CLKRCON                           0000051A
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 15
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+CLKRDC0                           00000003
+CLKRDC1                           00000004
+CLKRDIV0                          00000000
+CLKRDIV1                          00000001
+CLKRDIV2                          00000002
+CLKREN                            00000007
+CLKROE                            00000006
+CLKRSLR                           00000005
+CM1CON0                           00000111
+CM1CON1                           00000112
+CM2CON0                           00000113
+CM2CON1                           00000114
+CM3CON0                           0000011E
+CM3CON1                           0000011F
+CM4CON0                           0000011A
+CM4CON1                           0000011B
+CMOUT                             00000115
+COUNT0                            00000000
+COUNT1                            00000001
+COUNT2                            00000002
+COUNT3                            00000003
+COUNT4                            00000004
+COUNT5                            00000005
+COUNT6                            00000006
+COUNT7                            00000007
+COUNT8                            00000008
+COUNT9                            00000009
+COUNT_CHANGE                      0000008D
+COUNT_CHANGE_END                  000000E6
+COUNT_EIGHT                       000000DA
+COUNT_FIVE                        000000CE
+COUNT_FOUR                        000000CA
+COUNT_NINE                        000000DE
+COUNT_ONE                         000000BE
+COUNT_SEVEN                       000000D6
+COUNT_SIX                         000000D2
+COUNT_TEN                         000000E2
+COUNT_THREE                       000000C6
+COUNT_TWO                         000000C2
+CREN                              00000004
+CSRC                              00000007
+CURRENT_COUNT                     0000000C
+C_SHAD                            00000000
+DACCON0                           00000118
+DACCON1                           00000119
+DACEN                             00000007
+DACNSS                            00000000
+DACOE1                            00000005
+DACOE2                            00000004
+DACPSS0                           00000002
+DACPSS1                           00000003
+DACR0                             00000000
+DACR1                             00000001
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 16
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+DACR2                             00000002
+DACR3                             00000003
+DACR4                             00000004
+DACR5                             00000005
+DACR6                             00000006
+DACR7                             00000007
+DC                                00000001
+DC1B0                             00000004
+DC1B1                             00000005
+DC2B0                             00000004
+DC2B1                             00000005
+DC3B0                             00000004
+DC3B1                             00000005
+DC_SHAD                           00000001
+DHEN                              00000000
+DISPALY_END                       00000104
+DISPALY_KEY                       000000F2
+DISPLAY                           000000E7
+DISPLAY_FOUR                      0000000A
+DISPLAY_ONE                       0000000A
+DISPLAY_THREE                     0000000A
+DISPLAY_TWO                       0000000A
+DONE                              00000001
+DOUBLE_PRESS                      00000061
+D_NOT_A                           00000005
+EEADR                             00000191
+EEADRH                            00000192
+EEADRL                            00000191
+EECON1                            00000195
+EECON2                            00000196
+EEDAT                             00000193
+EEDATH                            00000194
+EEDATL                            00000193
+EEIE                              00000004
+EEIF                              00000004
+EEPGD                             00000007
+EN                                00000007
+EQUAL                             00000048
+F                                 00000001
+FERR                              00000002
+FREE                              00000004
+FSR0                              00000004
+FSR0H                             00000005
+FSR0H_SHAD                        00000FE9
+FSR0L                             00000004
+FSR0L_SHAD                        00000FE8
+FSR1                              00000006
+FSR1H                             00000007
+FSR1H_SHAD                        00000FEB
+FSR1L                             00000006
+FSR1L_SHAD                        00000FEA
+FVRCON                            00000117
+FVREN                             00000007
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 17
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+FVRRDY                            00000006
+GCEN                              00000007
+GIE                               00000007
+GO                                00000001
+GO_NOT_DONE                       00000001
+HFIOFL                            00000003
+HFIOFR                            00000004
+HFIOFS                            00000000
+INDF0                             00000000
+INDF1                             00000001
+INEQUAL                           00000043
+INLVLA                            0000038C
+INLVLA0                           00000000
+INLVLA1                           00000001
+INLVLA2                           00000002
+INLVLA3                           00000003
+INLVLA4                           00000004
+INLVLA5                           00000005
+INLVLA6                           00000006
+INLVLA7                           00000007
+INLVLB                            0000038D
+INLVLB0                           00000000
+INLVLB1                           00000001
+INLVLB2                           00000002
+INLVLB3                           00000003
+INLVLB4                           00000004
+INLVLB5                           00000005
+INLVLB6                           00000006
+INLVLB7                           00000007
+INLVLC                            0000038E
+INLVLC0                           00000000
+INLVLC1                           00000001
+INLVLC2                           00000002
+INLVLC3                           00000003
+INLVLC4                           00000004
+INLVLC5                           00000005
+INLVLC6                           00000006
+INLVLC7                           00000007
+INLVLE                            00000390
+INLVLE3                           00000003
+INT                               0000000B
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IOCAF                             00000393
+IOCAF0                            00000000
+IOCAF1                            00000001
+IOCAF2                            00000002
+IOCAF3                            00000003
+IOCAF4                            00000004
+IOCAF5                            00000005
+IOCAF6                            00000006
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 18
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+IOCAF7                            00000007
+IOCAN                             00000392
+IOCAN0                            00000000
+IOCAN1                            00000001
+IOCAN2                            00000002
+IOCAN3                            00000003
+IOCAN4                            00000004
+IOCAN5                            00000005
+IOCAN6                            00000006
+IOCAN7                            00000007
+IOCAP                             00000391
+IOCAP0                            00000000
+IOCAP1                            00000001
+IOCAP2                            00000002
+IOCAP3                            00000003
+IOCAP4                            00000004
+IOCAP5                            00000005
+IOCAP6                            00000006
+IOCAP7                            00000007
+IOCBF                             00000396
+IOCBF0                            00000000
+IOCBF1                            00000001
+IOCBF2                            00000002
+IOCBF3                            00000003
+IOCBF4                            00000004
+IOCBF5                            00000005
+IOCBF6                            00000006
+IOCBF7                            00000007
+IOCBN                             00000395
+IOCBN0                            00000000
+IOCBN1                            00000001
+IOCBN2                            00000002
+IOCBN3                            00000003
+IOCBN4                            00000004
+IOCBN5                            00000005
+IOCBN6                            00000006
+IOCBN7                            00000007
+IOCBP                             00000394
+IOCBP0                            00000000
+IOCBP1                            00000001
+IOCBP2                            00000002
+IOCBP3                            00000003
+IOCBP4                            00000004
+IOCBP5                            00000005
+IOCBP6                            00000006
+IOCBP7                            00000007
+IOCCF                             00000399
+IOCCF0                            00000000
+IOCCF1                            00000001
+IOCCF2                            00000002
+IOCCF3                            00000003
+IOCCF4                            00000004
+IOCCF5                            00000005
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 19
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+IOCCF6                            00000006
+IOCCF7                            00000007
+IOCCN                             00000398
+IOCCN0                            00000000
+IOCCN1                            00000001
+IOCCN2                            00000002
+IOCCN3                            00000003
+IOCCN4                            00000004
+IOCCN5                            00000005
+IOCCN6                            00000006
+IOCCN7                            00000007
+IOCCP                             00000397
+IOCCP0                            00000000
+IOCCP1                            00000001
+IOCCP2                            00000002
+IOCCP3                            00000003
+IOCCP4                            00000004
+IOCCP5                            00000005
+IOCCP6                            00000006
+IOCCP7                            00000007
+IOCEF                             0000039F
+IOCEF3                            00000003
+IOCEN                             0000039E
+IOCEN3                            00000003
+IOCEP                             0000039D
+IOCEP3                            00000003
+IOCIE                             00000003
+IOCIF                             00000000
+IRCF0                             00000003
+IRCF1                             00000004
+IRCF2                             00000005
+IRCF3                             00000006
+KEY_BEFORE                        00000001
+KEY_FINAL                         00000000
+L1_LONG                           00000007
+L2_LONG                           00000008
+L3_LONG                           00000009
+LATA                              0000010C
+LATA0                             00000000
+LATA1                             00000001
+LATA2                             00000002
+LATA3                             00000003
+LATA4                             00000004
+LATA5                             00000005
+LATA6                             00000006
+LATA7                             00000007
+LATB                              0000010D
+LATB0                             00000000
+LATB1                             00000001
+LATB2                             00000002
+LATB3                             00000003
+LATB4                             00000004
+LATB5                             00000005
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 20
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+LATB6                             00000006
+LATB7                             00000007
+LATC                              0000010E
+LATC0                             00000000
+LATC1                             00000001
+LATC2                             00000002
+LATC3                             00000003
+LATC4                             00000004
+LATC5                             00000005
+LATC6                             00000006
+LATC7                             00000007
+LFIOFR                            00000001
+LIGHTNING                         000000EC
+LONG_PRESS                        0000006C
+LWLO                              00000005
+MC1OUT                            00000000
+MC2OUT                            00000001
+MC3OUT                            00000002
+MC4OUT                            00000003
+MFIOFR                            00000002
+MSK0                              00000000
+MSK1                              00000001
+MSK2                              00000002
+MSK3                              00000003
+MSK4                              00000004
+MSK5                              00000005
+MSK6                              00000006
+MSK7                              00000007
+M_CNT                             00000004
+NOT_BOR                           00000000
+NOT_PD                            00000003
+NOT_POR                           00000001
+NOT_RI                            00000002
+NOT_RMCLR                         00000003
+NOT_RWDT                          00000004
+NOT_T1SYNC                        00000002
+NOT_TO                            00000004
+NOT_WPUEN                         00000007
+NO_CHANGE_KEL_END                 0000008A
+NO_CHANGE_KEY                     0000003D
+N_CNT                             00000005
+ODCONA                            0000028C
+ODCONA0                           00000000
+ODCONA1                           00000001
+ODCONA2                           00000002
+ODCONA3                           00000003
+ODCONA4                           00000004
+ODCONA5                           00000005
+ODCONA6                           00000006
+ODCONA7                           00000007
+ODCONB                            0000028D
+ODCONB0                           00000000
+ODCONB1                           00000001
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 21
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ODCONB2                           00000002
+ODCONB3                           00000003
+ODCONB4                           00000004
+ODCONB5                           00000005
+ODCONB6                           00000006
+ODCONB7                           00000007
+ODCONC                            0000028E
+ODCONC0                           00000000
+ODCONC1                           00000001
+ODCONC2                           00000002
+ODCONC3                           00000003
+ODCONC4                           00000004
+ODCONC5                           00000005
+ODCONC6                           00000006
+ODCONC7                           00000007
+OERR                              00000001
+ONE_CONTINUE                      00000079
+ONE_CONTINUE_CONTIUNE             00000081
+ONE_TO_ONE                        0000006F
+ONE_TO_ZERO                       0000004D
+OPA1CON                           00000511
+OPA1EN                            00000007
+OPA1PCH0                          00000000
+OPA1PCH1                          00000001
+OPA1SP                            00000006
+OPA2CON                           00000513
+OPA2EN                            00000007
+OPA2PCH0                          00000000
+OPA2PCH1                          00000001
+OPA2SP                            00000006
+OPTION_REG                        00000095
+OSCCON                            00000099
+OSCSTAT                           0000009A
+OSCTUNE                           00000098
+OSFIE                             00000007
+OSFIF                             00000007
+OSTS                              00000005
+P                                 00000004
+P1ARSEN                           00000005
+P1ASDEN                           00000006
+P1ASDLA                           00000000
+P1ASDLB                           00000001
+P1ASDLC                           00000002
+P1ASDLD                           00000003
+P1ASDLE                           00000004
+P1ASDLF                           00000005
+P1ASDOV                           00000000
+P1ASDSC1                          00000001
+P1ASDSC2                          00000002
+P1ASDSC3                          00000003
+P1ASDSC4                          00000004
+P1ASDSIN                          00000007
+P1ASE                             00000007
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 22
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+P1CPRE0                           00000004
+P1CPRE1                           00000005
+P1CSRC0                           00000000
+P1CSRC1                           00000001
+P1DBFE                            00000005
+P1DBRE                            00000004
+P1DCPOL                           00000005
+P1DCSC1                           00000001
+P1DCSC2                           00000002
+P1DCSC3                           00000003
+P1DCSC4                           00000004
+P1DCSIN                           00000007
+P1DCST                            00000000
+P1FEBM0                           00000004
+P1FEBM1                           00000005
+P1FEBSC1                          00000001
+P1FEBSC2                          00000002
+P1FEBSC3                          00000003
+P1FEBSC4                          00000004
+P1FEBSIN                          00000007
+P1HSMEN                           00000000
+P1INPOL                           00000006
+P1LSMEN                           00000001
+P1MDLBIT                          00000005
+P1MDLEN                           00000007
+P1MDLPOL                          00000006
+P1MODE0                           00000000
+P1MODE1                           00000001
+P1MODE2                           00000002
+P1MODE3                           00000003
+P1MSRC0                           00000000
+P1MSRC1                           00000001
+P1MSRC2                           00000002
+P1MSRC3                           00000003
+P1OEA                             00000000
+P1OEB                             00000001
+P1OEC                             00000002
+P1OED                             00000003
+P1OEE                             00000004
+P1OEF                             00000005
+P1PHSC1                           00000001
+P1PHSC2                           00000002
+P1PHSC3                           00000003
+P1PHSC4                           00000004
+P1PHSIN                           00000007
+P1PHST                            00000000
+P1POFST                           00000007
+P1POLA                            00000000
+P1POLB                            00000001
+P1POLC                            00000002
+P1POLD                            00000003
+P1POLE                            00000004
+P1POLF                            00000005
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 23
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+P1PRPOL                           00000006
+P1PRSC1                           00000001
+P1PRSC2                           00000002
+P1PRSC3                           00000003
+P1PRSC4                           00000004
+P1PRSIN                           00000007
+P1PRST                            00000000
+P1REBM0                           00000000
+P1REBM1                           00000001
+P1REBSC1                          00000001
+P1REBSC2                          00000002
+P1REBSC3                          00000003
+P1REBSC4                          00000004
+P1REBSIN                          00000007
+P1SSYNC                           00000007
+P1STRA                            00000000
+P1STRB                            00000001
+P1STRC                            00000002
+P1STRD                            00000003
+P1STRE                            00000004
+P1STRF                            00000005
+P1SYNC0                           00000000
+P1SYNC1                           00000001
+P1SYNC2                           00000002
+P1TDCIE                           00000005
+P1TDCIF                           00000001
+P1TOVIE                           00000007
+P1TOVIF                           00000003
+P1TPHIE                           00000006
+P1TPHIF                           00000002
+P1TPRIE                           00000004
+P1TPRIF                           00000000
+P2ARSEN                           00000005
+P2ASDEN                           00000006
+P2ASDLA                           00000000
+P2ASDLB                           00000001
+P2ASDOV                           00000000
+P2ASDSC1                          00000001
+P2ASDSC2                          00000002
+P2ASDSC3                          00000003
+P2ASDSC4                          00000004
+P2ASDSIN                          00000007
+P2ASE                             00000007
+P2CPRE0                           00000004
+P2CPRE1                           00000005
+P2CSRC0                           00000000
+P2CSRC1                           00000001
+P2DBFE                            00000005
+P2DBRE                            00000004
+P2DCPOL                           00000005
+P2DCSC1                           00000001
+P2DCSC2                           00000002
+P2DCSC3                           00000003
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 24
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+P2DCSC4                           00000004
+P2DCSIN                           00000007
+P2DCST                            00000000
+P2FEBM0                           00000004
+P2FEBM1                           00000005
+P2FEBSC1                          00000001
+P2FEBSC2                          00000002
+P2FEBSC3                          00000003
+P2FEBSC4                          00000004
+P2FEBSIN                          00000007
+P2HSMEN                           00000000
+P2INPOL                           00000006
+P2LSMEN                           00000001
+P2MDLBIT                          00000005
+P2MDLEN                           00000007
+P2MDLPOL                          00000006
+P2MODE0                           00000000
+P2MODE1                           00000001
+P2MODE2                           00000002
+P2MODE3                           00000003
+P2MSRC0                           00000000
+P2MSRC1                           00000001
+P2MSRC2                           00000002
+P2MSRC3                           00000003
+P2OEA                             00000000
+P2OEB                             00000001
+P2PHSC1                           00000001
+P2PHSC2                           00000002
+P2PHSC3                           00000003
+P2PHSC4                           00000004
+P2PHSIN                           00000007
+P2PHST                            00000000
+P2POFST                           00000007
+P2POLA                            00000000
+P2POLB                            00000001
+P2PRPOL                           00000006
+P2PRSC1                           00000001
+P2PRSC2                           00000002
+P2PRSC3                           00000003
+P2PRSC4                           00000004
+P2PRSIN                           00000007
+P2PRST                            00000000
+P2REBM0                           00000000
+P2REBM1                           00000001
+P2REBSC1                          00000001
+P2REBSC2                          00000002
+P2REBSC3                          00000003
+P2REBSC4                          00000004
+P2REBSIN                          00000007
+P2SSYNC                           00000007
+P2STRA                            00000000
+P2STRB                            00000001
+P2SYNC0                           00000000
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 25
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+P2SYNC1                           00000001
+P2SYNC2                           00000002
+P2TDCIE                           00000005
+P2TDCIF                           00000001
+P2TOVIE                           00000007
+P2TOVIF                           00000003
+P2TPHIE                           00000006
+P2TPHIF                           00000002
+P2TPRIE                           00000004
+P2TPRIF                           00000000
+P3ARSEN                           00000005
+P3ASDEN                           00000006
+P3ASDLA                           00000000
+P3ASDLB                           00000001
+P3ASDLC                           00000002
+P3ASDLD                           00000003
+P3ASDLE                           00000004
+P3ASDLF                           00000005
+P3ASDOV                           00000000
+P3ASDSC1                          00000001
+P3ASDSC2                          00000002
+P3ASDSC3                          00000003
+P3ASDSC4                          00000004
+P3ASDSIN                          00000007
+P3ASE                             00000007
+P3CPRE0                           00000004
+P3CPRE1                           00000005
+P3CSRC0                           00000000
+P3CSRC1                           00000001
+P3DBFE                            00000005
+P3DBRE                            00000004
+P3DCPOL                           00000005
+P3DCSC1                           00000001
+P3DCSC2                           00000002
+P3DCSC3                           00000003
+P3DCSC4                           00000004
+P3DCSIN                           00000007
+P3DCST                            00000000
+P3FEBM0                           00000004
+P3FEBM1                           00000005
+P3FEBSC1                          00000001
+P3FEBSC2                          00000002
+P3FEBSC3                          00000003
+P3FEBSC4                          00000004
+P3FEBSIN                          00000007
+P3HSMEN                           00000000
+P3INPOL                           00000006
+P3LSMEN                           00000001
+P3MDLBIT                          00000005
+P3MDLEN                           00000007
+P3MDLPOL                          00000006
+P3MODE0                           00000000
+P3MODE1                           00000001
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 26
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+P3MODE2                           00000002
+P3MODE3                           00000003
+P3MSRC0                           00000000
+P3MSRC1                           00000001
+P3MSRC2                           00000002
+P3MSRC3                           00000003
+P3OEA                             00000000
+P3OEB                             00000001
+P3PHSC1                           00000001
+P3PHSC2                           00000002
+P3PHSC3                           00000003
+P3PHSC4                           00000004
+P3PHSIN                           00000007
+P3PHST                            00000000
+P3POFST                           00000007
+P3POLA                            00000000
+P3POLB                            00000001
+P3PRPOL                           00000006
+P3PRSC1                           00000001
+P3PRSC2                           00000002
+P3PRSC3                           00000003
+P3PRSC4                           00000004
+P3PRSIN                           00000007
+P3PRST                            00000000
+P3REBM0                           00000000
+P3REBM1                           00000001
+P3REBSC1                          00000001
+P3REBSC2                          00000002
+P3REBSC3                          00000003
+P3REBSC4                          00000004
+P3REBSIN                          00000007
+P3SSYNC                           00000007
+P3STRA                            00000000
+P3STRB                            00000001
+P3SYNC0                           00000000
+P3SYNC1                           00000001
+P3SYNC2                           00000002
+P3TDCIE                           00000005
+P3TDCIF                           00000001
+P3TOVIE                           00000007
+P3TOVIF                           00000003
+P3TPHIE                           00000006
+P3TPHIF                           00000002
+P3TPRIE                           00000004
+P3TPRIF                           00000000
+PCH0                              00000000
+PCH1                              00000001
+PCIE                              00000006
+PCL                               00000002
+PCLATH                            0000000A
+PCLATH_SHAD                       00000FE7
+PCON                              00000096
+PEIE                              00000006
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 27
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PEN                               00000002
+PIE1                              00000091
+PIE2                              00000092
+PIE3                              00000093
+PIE4                              00000094
+PIR1                              00000011
+PIR2                              00000012
+PIR3                              00000013
+PIR4                              00000014
+PLLR                              00000006
+PMSC3TIE                          00000006
+PORTA                             0000000C
+PORTB                             0000000D
+PORTC                             0000000E
+PORTE                             00000010
+PR2                               0000001B
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+PSMC1ASDC                         0000081D
+PSMC1ASDL                         0000081E
+PSMC1ASDS                         0000081F
+PSMC1BLKF                         0000082C
+PSMC1BLKF0                        00000000
+PSMC1BLKF1                        00000001
+PSMC1BLKF2                        00000002
+PSMC1BLKF3                        00000003
+PSMC1BLKF4                        00000004
+PSMC1BLKF5                        00000005
+PSMC1BLKF6                        00000006
+PSMC1BLKF7                        00000007
+PSMC1BLKR                         0000082B
+PSMC1BLKR0                        00000000
+PSMC1BLKR1                        00000001
+PSMC1BLKR2                        00000002
+PSMC1BLKR3                        00000003
+PSMC1BLKR4                        00000004
+PSMC1BLKR5                        00000005
+PSMC1BLKR6                        00000006
+PSMC1BLKR7                        00000007
+PSMC1BLNK                         00000817
+PSMC1CLK                          00000814
+PSMC1CON                          00000811
+PSMC1DBF                          0000082A
+PSMC1DBF0                         00000000
+PSMC1DBF1                         00000001
+PSMC1DBF2                         00000002
+PSMC1DBF3                         00000003
+PSMC1DBF4                         00000004
+PSMC1DBF5                         00000005
+PSMC1DBF6                         00000006
+PSMC1DBF7                         00000007
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 28
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PSMC1DBR                          00000829
+PSMC1DBR0                         00000000
+PSMC1DBR1                         00000001
+PSMC1DBR2                         00000002
+PSMC1DBR3                         00000003
+PSMC1DBR4                         00000004
+PSMC1DBR5                         00000005
+PSMC1DBR6                         00000006
+PSMC1DBR7                         00000007
+PSMC1DC                           00000823
+PSMC1DC0                          00000000
+PSMC1DC1                          00000001
+PSMC1DC10                         00000002
+PSMC1DC11                         00000003
+PSMC1DC12                         00000004
+PSMC1DC13                         00000005
+PSMC1DC14                         00000006
+PSMC1DC15                         00000007
+PSMC1DC2                          00000002
+PSMC1DC3                          00000003
+PSMC1DC4                          00000004
+PSMC1DC5                          00000005
+PSMC1DC6                          00000006
+PSMC1DC7                          00000007
+PSMC1DC8                          00000000
+PSMC1DC9                          00000001
+PSMC1DCH                          00000824
+PSMC1DCL                          00000823
+PSMC1DCS                          0000081B
+PSMC1EN                           00000007
+PSMC1FEBS                         00000819
+PSMC1FFA                          0000082D
+PSMC1FFA0                         00000000
+PSMC1FFA1                         00000001
+PSMC1FFA2                         00000002
+PSMC1FFA3                         00000003
+PSMC1INT                          00000820
+PSMC1LD                           00000006
+PSMC1MDL                          00000812
+PSMC1OEN                          00000815
+PSMC1PH                           00000821
+PSMC1PH0                          00000000
+PSMC1PH1                          00000001
+PSMC1PH10                         00000002
+PSMC1PH11                         00000003
+PSMC1PH12                         00000004
+PSMC1PH13                         00000005
+PSMC1PH14                         00000006
+PSMC1PH15                         00000007
+PSMC1PH2                          00000002
+PSMC1PH3                          00000003
+PSMC1PH4                          00000004
+PSMC1PH5                          00000005
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 29
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PSMC1PH6                          00000006
+PSMC1PH7                          00000007
+PSMC1PH8                          00000000
+PSMC1PH9                          00000001
+PSMC1PHH                          00000822
+PSMC1PHL                          00000821
+PSMC1PHS                          0000081A
+PSMC1POL                          00000816
+PSMC1PR                           00000825
+PSMC1PR0                          00000000
+PSMC1PR1                          00000001
+PSMC1PR10                         00000002
+PSMC1PR11                         00000003
+PSMC1PR12                         00000004
+PSMC1PR13                         00000005
+PSMC1PR14                         00000006
+PSMC1PR15                         00000007
+PSMC1PR2                          00000002
+PSMC1PR3                          00000003
+PSMC1PR4                          00000004
+PSMC1PR5                          00000005
+PSMC1PR6                          00000006
+PSMC1PR7                          00000007
+PSMC1PR8                          00000000
+PSMC1PR9                          00000001
+PSMC1PRH                          00000826
+PSMC1PRL                          00000825
+PSMC1PRS                          0000081C
+PSMC1REBS                         00000818
+PSMC1SIE                          00000000
+PSMC1SIF                          00000000
+PSMC1STR0                         0000082E
+PSMC1STR1                         0000082F
+PSMC1SYNC                         00000813
+PSMC1TIE                          00000004
+PSMC1TIF                          00000004
+PSMC1TMR                          00000827
+PSMC1TMR0                         00000000
+PSMC1TMR1                         00000001
+PSMC1TMR10                        00000002
+PSMC1TMR11                        00000003
+PSMC1TMR12                        00000004
+PSMC1TMR13                        00000005
+PSMC1TMR14                        00000006
+PSMC1TMR15                        00000007
+PSMC1TMR2                         00000002
+PSMC1TMR3                         00000003
+PSMC1TMR4                         00000004
+PSMC1TMR5                         00000005
+PSMC1TMR6                         00000006
+PSMC1TMR7                         00000007
+PSMC1TMR8                         00000000
+PSMC1TMR9                         00000001
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 30
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PSMC1TMRH                         00000828
+PSMC1TMRL                         00000827
+PSMC2ASDC                         0000083D
+PSMC2ASDL                         0000083E
+PSMC2ASDS                         0000083F
+PSMC2BLKF                         0000084C
+PSMC2BLKF0                        00000000
+PSMC2BLKF1                        00000001
+PSMC2BLKF2                        00000002
+PSMC2BLKF3                        00000003
+PSMC2BLKF4                        00000004
+PSMC2BLKF5                        00000005
+PSMC2BLKF6                        00000006
+PSMC2BLKF7                        00000007
+PSMC2BLKR                         0000084B
+PSMC2BLKR0                        00000000
+PSMC2BLKR1                        00000001
+PSMC2BLKR2                        00000002
+PSMC2BLKR3                        00000003
+PSMC2BLKR4                        00000004
+PSMC2BLKR5                        00000005
+PSMC2BLKR6                        00000006
+PSMC2BLKR7                        00000007
+PSMC2BLNK                         00000837
+PSMC2CLK                          00000834
+PSMC2CON                          00000831
+PSMC2DBF                          0000084A
+PSMC2DBF0                         00000000
+PSMC2DBF1                         00000001
+PSMC2DBF2                         00000002
+PSMC2DBF3                         00000003
+PSMC2DBF4                         00000004
+PSMC2DBF5                         00000005
+PSMC2DBF6                         00000006
+PSMC2DBF7                         00000007
+PSMC2DBR                          00000849
+PSMC2DBR0                         00000000
+PSMC2DBR1                         00000001
+PSMC2DBR2                         00000002
+PSMC2DBR3                         00000003
+PSMC2DBR4                         00000004
+PSMC2DBR5                         00000005
+PSMC2DBR6                         00000006
+PSMC2DBR7                         00000007
+PSMC2DC                           00000843
+PSMC2DC0                          00000000
+PSMC2DC1                          00000001
+PSMC2DC10                         00000002
+PSMC2DC11                         00000003
+PSMC2DC12                         00000004
+PSMC2DC13                         00000005
+PSMC2DC14                         00000006
+PSMC2DC15                         00000007
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 31
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PSMC2DC2                          00000002
+PSMC2DC3                          00000003
+PSMC2DC4                          00000004
+PSMC2DC5                          00000005
+PSMC2DC6                          00000006
+PSMC2DC7                          00000007
+PSMC2DC8                          00000000
+PSMC2DC9                          00000001
+PSMC2DCH                          00000844
+PSMC2DCL                          00000843
+PSMC2DCS                          0000083B
+PSMC2EN                           00000007
+PSMC2FEBS                         00000839
+PSMC2FFA                          0000084D
+PSMC2FFA0                         00000000
+PSMC2FFA1                         00000001
+PSMC2FFA2                         00000002
+PSMC2FFA3                         00000003
+PSMC2INT                          00000840
+PSMC2LD                           00000006
+PSMC2MDL                          00000832
+PSMC2OEN                          00000835
+PSMC2PH                           00000841
+PSMC2PH0                          00000000
+PSMC2PH1                          00000001
+PSMC2PH10                         00000002
+PSMC2PH11                         00000003
+PSMC2PH12                         00000004
+PSMC2PH13                         00000005
+PSMC2PH14                         00000006
+PSMC2PH15                         00000007
+PSMC2PH2                          00000002
+PSMC2PH3                          00000003
+PSMC2PH4                          00000004
+PSMC2PH5                          00000005
+PSMC2PH6                          00000006
+PSMC2PH7                          00000007
+PSMC2PH8                          00000000
+PSMC2PH9                          00000001
+PSMC2PHH                          00000842
+PSMC2PHL                          00000841
+PSMC2PHS                          0000083A
+PSMC2POL                          00000836
+PSMC2PR                           00000845
+PSMC2PR0                          00000000
+PSMC2PR1                          00000001
+PSMC2PR10                         00000002
+PSMC2PR11                         00000003
+PSMC2PR12                         00000004
+PSMC2PR13                         00000005
+PSMC2PR14                         00000006
+PSMC2PR15                         00000007
+PSMC2PR2                          00000002
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 32
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PSMC2PR3                          00000003
+PSMC2PR4                          00000004
+PSMC2PR5                          00000005
+PSMC2PR6                          00000006
+PSMC2PR7                          00000007
+PSMC2PR8                          00000000
+PSMC2PR9                          00000001
+PSMC2PRH                          00000846
+PSMC2PRL                          00000845
+PSMC2PRS                          0000083C
+PSMC2REBS                         00000838
+PSMC2SIE                          00000001
+PSMC2SIF                          00000001
+PSMC2STR0                         0000084E
+PSMC2STR1                         0000084F
+PSMC2SYNC                         00000833
+PSMC2TIE                          00000005
+PSMC2TIF                          00000005
+PSMC2TMR                          00000847
+PSMC2TMR0                         00000000
+PSMC2TMR1                         00000001
+PSMC2TMR10                        00000002
+PSMC2TMR11                        00000003
+PSMC2TMR12                        00000004
+PSMC2TMR13                        00000005
+PSMC2TMR14                        00000006
+PSMC2TMR15                        00000007
+PSMC2TMR2                         00000002
+PSMC2TMR3                         00000003
+PSMC2TMR4                         00000004
+PSMC2TMR5                         00000005
+PSMC2TMR6                         00000006
+PSMC2TMR7                         00000007
+PSMC2TMR8                         00000000
+PSMC2TMR9                         00000001
+PSMC2TMRH                         00000848
+PSMC2TMRL                         00000847
+PSMC3ASDC                         0000085D
+PSMC3ASDL                         0000085E
+PSMC3ASDS                         0000085F
+PSMC3BLKF                         0000086C
+PSMC3BLKF0                        00000000
+PSMC3BLKF1                        00000001
+PSMC3BLKF2                        00000002
+PSMC3BLKF3                        00000003
+PSMC3BLKF4                        00000004
+PSMC3BLKF5                        00000005
+PSMC3BLKF6                        00000006
+PSMC3BLKF7                        00000007
+PSMC3BLKR                         0000086B
+PSMC3BLKR0                        00000000
+PSMC3BLKR1                        00000001
+PSMC3BLKR2                        00000002
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 33
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PSMC3BLKR3                        00000003
+PSMC3BLKR4                        00000004
+PSMC3BLKR5                        00000005
+PSMC3BLKR6                        00000006
+PSMC3BLKR7                        00000007
+PSMC3BLNK                         00000857
+PSMC3CLK                          00000854
+PSMC3CON                          00000851
+PSMC3DBF                          0000086A
+PSMC3DBF0                         00000000
+PSMC3DBF1                         00000001
+PSMC3DBF2                         00000002
+PSMC3DBF3                         00000003
+PSMC3DBF4                         00000004
+PSMC3DBF5                         00000005
+PSMC3DBF6                         00000006
+PSMC3DBF7                         00000007
+PSMC3DBR                          00000869
+PSMC3DBR0                         00000000
+PSMC3DBR1                         00000001
+PSMC3DBR2                         00000002
+PSMC3DBR3                         00000003
+PSMC3DBR4                         00000004
+PSMC3DBR5                         00000005
+PSMC3DBR6                         00000006
+PSMC3DBR7                         00000007
+PSMC3DC                           00000863
+PSMC3DC0                          00000000
+PSMC3DC1                          00000001
+PSMC3DC10                         00000002
+PSMC3DC11                         00000003
+PSMC3DC12                         00000004
+PSMC3DC13                         00000005
+PSMC3DC14                         00000006
+PSMC3DC15                         00000007
+PSMC3DC2                          00000002
+PSMC3DC3                          00000003
+PSMC3DC4                          00000004
+PSMC3DC5                          00000005
+PSMC3DC6                          00000006
+PSMC3DC7                          00000007
+PSMC3DC8                          00000000
+PSMC3DC9                          00000001
+PSMC3DCH                          00000864
+PSMC3DCL                          00000863
+PSMC3DCS                          0000085B
+PSMC3EN                           00000007
+PSMC3FEBS                         00000859
+PSMC3FFA                          0000086D
+PSMC3FFA0                         00000000
+PSMC3FFA1                         00000001
+PSMC3FFA2                         00000002
+PSMC3FFA3                         00000003
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 34
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PSMC3INT                          00000860
+PSMC3LD                           00000006
+PSMC3MDL                          00000852
+PSMC3OEN                          00000855
+PSMC3PH                           00000861
+PSMC3PH0                          00000000
+PSMC3PH1                          00000001
+PSMC3PH10                         00000002
+PSMC3PH11                         00000003
+PSMC3PH12                         00000004
+PSMC3PH13                         00000005
+PSMC3PH14                         00000006
+PSMC3PH15                         00000007
+PSMC3PH2                          00000002
+PSMC3PH3                          00000003
+PSMC3PH4                          00000004
+PSMC3PH5                          00000005
+PSMC3PH6                          00000006
+PSMC3PH7                          00000007
+PSMC3PH8                          00000000
+PSMC3PH9                          00000001
+PSMC3PHH                          00000862
+PSMC3PHL                          00000861
+PSMC3PHS                          0000085A
+PSMC3POL                          00000856
+PSMC3PR                           00000865
+PSMC3PR0                          00000000
+PSMC3PR1                          00000001
+PSMC3PR10                         00000002
+PSMC3PR11                         00000003
+PSMC3PR12                         00000004
+PSMC3PR13                         00000005
+PSMC3PR14                         00000006
+PSMC3PR15                         00000007
+PSMC3PR2                          00000002
+PSMC3PR3                          00000003
+PSMC3PR4                          00000004
+PSMC3PR5                          00000005
+PSMC3PR6                          00000006
+PSMC3PR7                          00000007
+PSMC3PR8                          00000000
+PSMC3PR9                          00000001
+PSMC3PRH                          00000866
+PSMC3PRL                          00000865
+PSMC3PRS                          0000085C
+PSMC3REBS                         00000858
+PSMC3SIE                          00000002
+PSMC3SIF                          00000002
+PSMC3STR0                         0000086E
+PSMC3STR1                         0000086F
+PSMC3SYNC                         00000853
+PSMC3TIE                          00000006
+PSMC3TIF                          00000006
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 35
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PSMC3TMR                          00000867
+PSMC3TMR0                         00000000
+PSMC3TMR1                         00000001
+PSMC3TMR10                        00000002
+PSMC3TMR11                        00000003
+PSMC3TMR12                        00000004
+PSMC3TMR13                        00000005
+PSMC3TMR14                        00000006
+PSMC3TMR15                        00000007
+PSMC3TMR2                         00000002
+PSMC3TMR3                         00000003
+PSMC3TMR4                         00000004
+PSMC3TMR5                         00000005
+PSMC3TMR6                         00000006
+PSMC3TMR7                         00000007
+PSMC3TMR8                         00000000
+PSMC3TMR9                         00000001
+PSMC3TMRH                         00000868
+PSMC3TMRL                         00000867
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RA5                               00000005
+RA6                               00000006
+RA7                               00000007
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RC0                               00000000
+RC1                               00000001
+RC1REG                            00000199
+RC1STA                            0000019D
+RC2                               00000002
+RC3                               00000003
+RC4                               00000004
+RC5                               00000005
+RC6                               00000006
+RC7                               00000007
+RCEN                              00000003
+RCIDL                             00000006
+RCIE                              00000005
+RCIF                              00000005
+RCREG                             00000199
+RCREG1                            00000199
+RCSTA                             0000019D
+RCSTA1                            0000019D
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 36
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RD                                00000000
+RE3                               00000003
+RSEN                              00000001
+RX9                               00000006
+RX9D                              00000000
+RXSEL                             00000001
+R_LONG                            00000006
+R_NOT_W                           00000002
+S                                 00000003
+SBCDE                             00000002
+SBOREN                            00000007
+SCIE                              00000005
+SCKP                              00000004
+SCKSEL                            00000004
+SCS0                              00000000
+SCS1                              00000001
+SDAHT                             00000003
+SDISEL                            00000003
+SDOSEL                            00000005
+SEN                               00000000
+SENDB                             00000003
+SHORT_PRESS                       00000087
+SLRCONA                           0000030C
+SLRCONA0                          00000000
+SLRCONA1                          00000001
+SLRCONA2                          00000002
+SLRCONA3                          00000003
+SLRCONA4                          00000004
+SLRCONA5                          00000005
+SLRCONA6                          00000006
+SLRCONA7                          00000007
+SLRCONB                           0000030D
+SLRCONB0                          00000000
+SLRCONB1                          00000001
+SLRCONB2                          00000002
+SLRCONB3                          00000003
+SLRCONB4                          00000004
+SLRCONB5                          00000005
+SLRCONB6                          00000006
+SLRCONB7                          00000007
+SLRCONC                           0000030E
+SLRCONC0                          00000000
+SLRCONC1                          00000001
+SLRCONC2                          00000002
+SLRCONC3                          00000003
+SLRCONC4                          00000004
+SLRCONC5                          00000005
+SLRCONC6                          00000006
+SLRCONC7                          00000007
+SMP                               00000007
+SP                                00000006
+SP1BRG                            0000019B
+SP1BRGH                           0000019C
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 37
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+SP1BRGL                           0000019B
+SPBRG                             0000019B
+SPBRG1                            0000019B
+SPBRGH                            0000019C
+SPBRGH1                           0000019C
+SPBRGL                            0000019B
+SPEN                              00000007
+SPLLEN                            00000007
+SREN                              00000005
+SSP1ADD                           00000212
+SSP1ADD0                          00000000
+SSP1ADD1                          00000001
+SSP1ADD2                          00000002
+SSP1ADD3                          00000003
+SSP1ADD4                          00000004
+SSP1ADD5                          00000005
+SSP1ADD6                          00000006
+SSP1ADD7                          00000007
+SSP1BUF                           00000211
+SSP1BUF0                          00000000
+SSP1BUF1                          00000001
+SSP1BUF2                          00000002
+SSP1BUF3                          00000003
+SSP1BUF4                          00000004
+SSP1BUF5                          00000005
+SSP1BUF6                          00000006
+SSP1BUF7                          00000007
+SSP1CON                           00000215
+SSP1CON1                          00000215
+SSP1CON2                          00000216
+SSP1CON3                          00000217
+SSP1IE                            00000003
+SSP1IF                            00000003
+SSP1MSK                           00000213
+SSP1MSK0                          00000000
+SSP1MSK1                          00000001
+SSP1MSK2                          00000002
+SSP1MSK3                          00000003
+SSP1MSK4                          00000004
+SSP1MSK5                          00000005
+SSP1MSK6                          00000006
+SSP1MSK7                          00000007
+SSP1STAT                          00000214
+SSPADD                            00000212
+SSPBUF                            00000211
+SSPCON                            00000215
+SSPCON1                           00000215
+SSPCON2                           00000216
+SSPCON3                           00000217
+SSPEN                             00000005
+SSPM0                             00000000
+SSPM1                             00000001
+SSPM2                             00000002
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 38
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+SSPM3                             00000003
+SSPMSK                            00000213
+SSPOV                             00000006
+SSPSTAT                           00000214
+START                             00000105
+STATE                             00000002
+STATE_BEFORE                      00000003
+STATUS                            00000003
+STATUS_SHAD                       00000FE4
+STKOVF                            00000007
+STKPTR                            00000FED
+STKUNF                            00000006
+SWDTEN                            00000000
+SYNC                              00000004
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+T1CKPS0                           00000004
+T1CKPS1                           00000005
+T1CON                             00000018
+T1GCON                            00000019
+T1GGO                             00000003
+T1GPOL                            00000006
+T1GSPM                            00000004
+T1GSS0                            00000000
+T1GSS1                            00000001
+T1GTM                             00000005
+T1GVAL                            00000002
+T1OSCEN                           00000003
+T1OSCR                            00000007
+T2CKPS0                           00000000
+T2CKPS1                           00000001
+T2CON                             0000001C
+T2OUTPS0                          00000003
+T2OUTPS1                          00000004
+T2OUTPS2                          00000005
+T2OUTPS3                          00000006
+TABLENUM                          00000000
+TMR0                              00000015
+TMR0CS                            00000005
+TMR0IE                            00000005
+TMR0IF                            00000002
+TMR0SE                            00000004
+TMR1                              00000016
+TMR1CS0                           00000006
+TMR1CS1                           00000007
+TMR1GE                            00000007
+TMR1GIE                           00000007
+TMR1GIF                           00000007
+TMR1H                             00000017
+TMR1IE                            00000000
+TMR1IF                            00000000
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 39
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TMR1L                             00000016
+TMR1ON                            00000000
+TMR2                              0000001A
+TMR2IE                            00000001
+TMR2IF                            00000001
+TMR2ON                            00000002
+TOSH                              00000FEF
+TOSL                              00000FEE
+TRIGSEL0                          00000004
+TRIGSEL1                          00000005
+TRIGSEL2                          00000006
+TRIGSEL3                          00000007
+TRISA                             0000008C
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISA5                            00000005
+TRISA6                            00000006
+TRISA7                            00000007
+TRISB                             0000008D
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+TRISC                             0000008E
+TRISC0                            00000000
+TRISC1                            00000001
+TRISC2                            00000002
+TRISC3                            00000003
+TRISC4                            00000004
+TRISC5                            00000005
+TRISC6                            00000006
+TRISC7                            00000007
+TRISE                             00000090
+TRISE3                            00000003
+TRMT                              00000001
+TSEN                              00000005
+TSRNG                             00000004
+TUN0                              00000000
+TUN1                              00000001
+TUN2                              00000002
+TUN3                              00000003
+TUN4                              00000004
+TUN5                              00000005
+TX1REG                            0000019A
+TX1STA                            0000019E
+TX9                               00000006
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 40
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TX9D                              00000000
+TXEN                              00000005
+TXIE                              00000004
+TXIF                              00000004
+TXREG                             0000019A
+TXREG1                            0000019A
+TXSEL                             00000002
+TXSTA                             0000019E
+TXSTA1                            0000019E
+TYPE                              0000000A
+TYPE_BEFORE                       0000000B
+UA                                00000001
+VREGCON                           00000197
+VREGPM                            00000001
+W                                 00000000
+WCOL                              00000007
+WDTCON                            00000097
+WDTPS0                            00000001
+WDTPS1                            00000002
+WDTPS2                            00000003
+WDTPS3                            00000004
+WDTPS4                            00000005
+WPUA                              0000020C
+WPUA0                             00000000
+WPUA1                             00000001
+WPUA2                             00000002
+WPUA3                             00000003
+WPUA4                             00000004
+WPUA5                             00000005
+WPUA6                             00000006
+WPUA7                             00000007
+WPUB                              0000020D
+WPUB0                             00000000
+WPUB1                             00000001
+WPUB2                             00000002
+WPUB3                             00000003
+WPUB4                             00000004
+WPUB5                             00000005
+WPUB6                             00000006
+WPUB7                             00000007
+WPUC                              0000020E
+WPUC0                             00000000
+WPUC1                             00000001
+WPUC2                             00000002
+WPUC3                             00000003
+WPUC4                             00000004
+WPUC5                             00000005
+WPUC6                             00000006
+WPUC7                             00000007
+WPUE                              00000210
+WPUE3                             00000003
+WR                                00000001
+WREG                              00000009
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 41
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+WREG_SHAD                         00000FE5
+WREN                              00000002
+WRERR                             00000003
+WUE                               00000001
+Z                                 00000002
+ZERO_CONTINUE                     0000005C
+ZERO_CONTINUE_CONTIUNE            00000066
+ZERO_TO_ONE                       0000004F
+ZERO_TO_ZERO                      00000053
+Z_SHAD                            00000002
+_BOREN_NSLEEP                     00003DFF
+_BOREN_OFF                        000039FF
+_BOREN_ON                         00003FFF
+_BOREN_SBODEN                     00003BFF
+_BORV_HI                          00003BFF
+_BORV_LO                          00003FFF
+_CLKOUTEN_OFF                     00003FFF
+_CLKOUTEN_ON                      000037FF
+_CONFIG1                          00008007
+_CONFIG2                          00008008
+_CPD_OFF                          00003FFF
+_CPD_ON                           00003EFF
+_CP_OFF                           00003FFF
+_CP_ON                            00003F7F
+_DEVID1                           00008006
+_FCMEN_OFF                        00001FFF
+_FCMEN_ON                         00003FFF
+_FOSC_ECH                         00003FFF
+_FOSC_ECL                         00003FFD
+_FOSC_ECM                         00003FFE
+_FOSC_EXTRC                       00003FFB
+_FOSC_HS                          00003FFA
+_FOSC_INTOSC                      00003FFC
+_FOSC_LP                          00003FF8
+_FOSC_XT                          00003FF9
+_IDLOC0                           00008000
+_IDLOC1                           00008001
+_IDLOC2                           00008002
+_IDLOC3                           00008003
+_IESO_OFF                         00002FFF
+_IESO_ON                          00003FFF
+_LPBOR_OFF                        00003FFF
+_LPBOR_ON                         000037FF
+_LVP_OFF                          00001FFF
+_LVP_ON                           00003FFF
+_MCLRE_OFF                        00003FBF
+_MCLRE_ON                         00003FFF
+_PLLEN_OFF                        00003EFF
+_PLLEN_ON                         00003FFF
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FDF
+_STVREN_OFF                       00003DFF
+_STVREN_ON                        00003FFF
+MPASM 5.67                       KEYTYPE.ASM   8-24-2018  18:31:48         PAGE 42
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_VCAPEN_OFF                       00003FFF
+_VCAPEN_ON                        00003FDF
+_WDTE_NSLEEP                      00003FF7
+_WDTE_OFF                         00003FE7
+_WDTE_ON                          00003FFF
+_WDTE_SWDTEN                      00003FEF
+_WRT_ALL                          00003FFC
+_WRT_BOOT                         00003FFE
+_WRT_HALF                         00003FFD
+_WRT_OFF                          00003FFF
+__16F1786                         00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+loop                              00000105
+
+Errors   :     0
+Warnings :    46 reported,     0 suppressed
+Messages :    21 reported,     0 suppressed
+
+

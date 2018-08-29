@@ -1,0 +1,120 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1786 ]
+[d frameptr 6 ]
+"6 E:\Microcomputer_2\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"6 E:\Microcomputer_2\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"62 E:\Microcomputer_2\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 E:\Microcomputer_2\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 E:\Microcomputer_2\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 1 0 ]
+"39
+[v _memcpyee memcpyee `(v  1 e 1 0 ]
+"51 E:\homework\S05-C.X\S05-C.c
+[v _INT INT `(v  1 e 1 0 ]
+"67
+[v _addCount addCount `(v  1 e 1 0 ]
+"115
+[v _keyChange keyChange `(v  1 e 1 0 ]
+"124
+[v _noPress noPress `(v  1 e 1 0 ]
+"140
+[v _nowPress nowPress `(v  1 e 1 0 ]
+"157
+[v _showResult showResult `(v  1 e 1 0 ]
+"166
+[v _main main `(v  1 e 1 0 ]
+"35
+[v _KEY_FINAL KEY_FINAL `uc  1 e 1 0 ]
+"36
+[v _key_before key_before `uc  1 e 1 0 ]
+"37
+[v _STATE STATE `uc  1 e 1 0 ]
+"38
+[v _state_before state_before `uc  1 e 1 0 ]
+"39
+[v _m_cnt m_cnt `uc  1 e 1 0 ]
+"40
+[v _n_cnt n_cnt `uc  1 e 1 0 ]
+"41
+[v _r_count r_count `uc  1 e 1 0 ]
+"42
+[v _short_standard short_standard `uc  1 e 1 0 ]
+"43
+[v _long_standard long_standard `uc  1 e 1 0 ]
+"44
+[v _double_standard double_standard `uc  1 e 1 0 ]
+"45
+[v _type type `uc  1 e 1 0 ]
+"46
+[v _current_count current_count `uc  1 e 1 0 ]
+"48
+[v _count count `[10]uc  1 e 10 0 ]
+"49
+[v _LED LED `[4]uc  1 e 4 0 ]
+"166
+[v _main main `(v  1 e 1 0 ]
+{
+"187
+} 0
+"157
+[v _showResult showResult `(v  1 e 1 0 ]
+{
+"163
+} 0
+"6 E:\Microcomputer_2\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"11
+[v ___awmod@sign sign `uc  1 a 1 6 ]
+[v ___awmod@counter counter `uc  1 a 1 5 ]
+"6
+[v ___awmod@divisor divisor `i  1 p 2 0 ]
+[v ___awmod@dividend dividend `i  1 p 2 2 ]
+"35
+} 0
+"6 E:\Microcomputer_2\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 7 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 6 ]
+[v ___awdiv@counter counter `uc  1 a 1 5 ]
+"6
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
+"42
+} 0
+"140 E:\homework\S05-C.X\S05-C.c
+[v _nowPress nowPress `(v  1 e 1 0 ]
+{
+"155
+} 0
+"124
+[v _noPress noPress `(v  1 e 1 0 ]
+{
+"139
+} 0
+"67
+[v _addCount addCount `(v  1 e 1 0 ]
+{
+"112
+} 0
+"115
+[v _keyChange keyChange `(v  1 e 1 0 ]
+{
+"123
+} 0
+"51
+[v _INT INT `(v  1 e 1 0 ]
+{
+"63
+[v INT@i i `uc  1 a 1 1 ]
+"66
+} 0

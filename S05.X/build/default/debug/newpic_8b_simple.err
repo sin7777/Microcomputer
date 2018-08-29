@@ -1,0 +1,123 @@
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 11 : Found label after column 1. (set1)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 12 : Found label after column 1. (set2)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 13 : Found label after column 1. (set3)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 14 : Found label after column 1. (set4)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 15 : Found label after column 1. (port)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 16 : Found label after column 1. (KEY_FINAL)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 17 : Found label after column 1. (KEY_BEFORE)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 18 : Found label after column 1. (STATE)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 19 : Found label after column 1. (STATE_BEFORE)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 20 : Found label after column 1. (M_CNT)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 21 : Found label after column 1. (N_CNT)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 22 : Found label after column 1. (R_LONG)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 23 : Found label after column 1. (L1_LONG)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 24 : Found label after column 1. (L2_LONG)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 25 : Found label after column 1. (L3_LONG)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 27 : Found label after column 1. (CURRENT_COUNT)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 30 : Found label after column 1. (count)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 31 : Found label after column 1. (delay)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 32 : Found label after column 1. (key)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 33 : Found label after column 1. (key_temp)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 35 : Found label after column 1. (counter_n)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 36 : Found label after column 1. (counter0)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 37 : Found label after column 1. (row)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 38 : Found label after column 1. (col)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 39 : Found label after column 1. (portb_read)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 40 : Found label after column 1. (counter_col)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 41 : Found label after column 1. (KEY_FINAL16)
+Warning[205] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 42 : Found directive in column 1. (idata)
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 67 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 70 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 87 : Found label after column 1. (TABLENUM)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 141 : Found label after column 1. (INEQUAL)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 148 : Found label after column 1. (EQUAL)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 155 : Found label after column 1. (ONE_TO_ZERO)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 156 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 159 : Found label after column 1. (ZERO_TO_ONE)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 160 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 165 : Found label after column 1. (ZERO_TO_ZERO)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 166 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 173 : Found label after column 1. (CLEAR_M_CNT)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 178 : Found label after column 1. (ZERO_CONTINUE)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 185 : Found label after column 1. (DOUBLE_PRESS)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 193 : Found label after column 1. (ZERO_CONTINUE_CONTIUNE)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 201 : Found label after column 1. (LONG_PRESS)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 207 : Found label after column 1. (ONE_TO_ONE)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 208 : Using default destination of 1 (file).
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 209 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 216 : Found label after column 1. (CLEAR_N_CNT)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 221 : Found label after column 1. (ONE_CONTINUE)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 228 : Found label after column 1. (ADD_M_CNT)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 233 : Found label after column 1. (ONE_CONTINUE_CONTIUNE)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 241 : Found label after column 1. (SHORT_PRESS)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 247 : Found label after column 1. (NO_CHANGE_KEL_END)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 265 : Found label after column 1. (CHANGE_TYPE)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 312 : Found label after column 1. (COUNT_ONE)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 314 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 318 : Found label after column 1. (COUNT_TWO)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 320 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 324 : Found label after column 1. (COUNT_THREE)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 326 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 330 : Found label after column 1. (COUNT_FOUR)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 332 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 336 : Found label after column 1. (COUNT_FIVE)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 338 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 342 : Found label after column 1. (COUNT_SIX)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 344 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 348 : Found label after column 1. (COUNT_SEVEN)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 350 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 354 : Found label after column 1. (COUNT_EIGHT)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 356 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 360 : Found label after column 1. (COUNT_NINE)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 362 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 366 : Found label after column 1. (COUNT_TEN)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 368 : Using default destination of 1 (file).
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 373 : Found label after column 1. (COUNT_CHANGE_END)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 376 : Found label after column 1. (DISPLAY)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 383 : Found label after column 1. (LIGHTNING)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 391 : Found label after column 1. (DISPALY_KEY)
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 393 : Using default destination of 1 (file).
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 398 : Using default destination of 1 (file).
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 402 : Using default destination of 1 (file).
+Message[305] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 410 : Using default destination of 1 (file).
+Warning[203] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 537 : Found opcode in column 1. (return)
+Warning[203] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 544 : Found opcode in column 1. (return)
+Warning[203] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 549 : Found opcode in column 1. (RETURN)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 550 : Found label after column 1. (FINDKEY)
+Warning[203] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 556 : Found opcode in column 1. (RETURN)
+Warning[203] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 560 : Found opcode in column 1. (RETURN)
+Warning[203] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 568 : Found opcode in column 1. (RETURN)
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 576 : Found label after column 1. (CLEAN_KEY1)
+Warning[203] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 638 : Found opcode in column 1. (RETURN)
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 654 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 657 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 660 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 682 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 685 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 691 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 714 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 717 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 720 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 743 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 746 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 752 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 755 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 821 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 824 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 831 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 834 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 842 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 845 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 852 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 855 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[207] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 859 : Found label after column 1. (OUTPUT)
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 861 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 875 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 878 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 884 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 890 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 893 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 896 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 899 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 902 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] E:\HOMEWORK\S05.X\NEWPIC_8B_SIMPLE.ASM 905 : Register in operand not in bank 0.  Ensure that bank bits are correct.

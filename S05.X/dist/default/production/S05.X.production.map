@@ -1,0 +1,246 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Sat Aug 25 15:18:49 2018
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                      RST       code   0x000000    program   0x000002
+                      ISR       code   0x000004    program   0x000028
+                   .cinit    romdata   0x000018    program   0x000010
+                MAIN_PROG       code   0x000020    program   0x000510
+                 .idata_i    romdata   0x0002a8    program   0x000018
+.config_8007_BUILD/DEFAULT/PRODUCTION/NEWPIC_       code   0x008007    program   0x000002
+.config_8008_BUILD/DEFAULT/PRODUCTION/NEWPIC_       code   0x008008    program   0x000002
+               .udata_shr      udata   0x000070       data   0x000010
+                   .idata      idata   0x000620       data   0x00000c
+               .udata_ovr      udata   0x00062c       data   0x00000b
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000000      
+                            0x000004    0x0002b3      
+                            0x008007    0x008008      
+            691 out of 8455 program addresses used, program memory utilization is 8%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   ACTION   0x00002b    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                ADD_M_CNT   0x000082    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                   CHANGE   0x000117    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               CHANGE_KEY   0x000034    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              CHANGE_TYPE   0x000099    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                   CHECK2   0x000140    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                CHECKSAME   0x00011c    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                CHECK_KEY   0x000153    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                CLEAN_KEY   0x000136    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               CLEAN_KEY1   0x00013c    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              CLEAR_M_CNT   0x00005b    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              CLEAR_N_CNT   0x00007a    program     static E:\homework\S05.X\newpic_8b_simple.asm
+             COUNT_CHANGE   0x000092    program     static E:\homework\S05.X\newpic_8b_simple.asm
+         COUNT_CHANGE_END   0x0000f6    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              COUNT_EIGHT   0x0000e7    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               COUNT_FIVE   0x0000d8    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               COUNT_FOUR   0x0000d3    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               COUNT_NINE   0x0000ec    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                COUNT_ONE   0x0000c4    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              COUNT_SEVEN   0x0000e2    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                COUNT_SIX   0x0000dd    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                COUNT_TEN   0x0000f1    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              COUNT_THREE   0x0000ce    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                COUNT_TWO   0x0000c9    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                DELAY_LED   0x000211    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              DISPALY_END   0x000115    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              DISPALY_KEY   0x000102    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                  DISPLAY   0x0000f7    program     static E:\homework\S05.X\newpic_8b_simple.asm
+             DOUBLE_PRESS   0x000063    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                    EQUAL   0x00004a    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                  FINDKEY   0x000126    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                 GET_COL0   0x000181    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                 GET_COL1   0x00019c    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                 GET_COL2   0x0001b9    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                 GET_COL3   0x0001d5    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                  GET_KEY   0x000202    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                  INEQUAL   0x000045    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                   INPUT3   0x00012c    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                     LED1   0x00021a    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                     LED2   0x000221    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                     LED3   0x000228    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                     LED4   0x000230    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                LIGHTNING   0x0000fc    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               LONG_PRESS   0x00006f    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                 MAKE_KEY   0x000122    program     static E:\homework\S05.X\newpic_8b_simple.asm
+        NO_CHANGE_KEL_END   0x00008f    program     static E:\homework\S05.X\newpic_8b_simple.asm
+            NO_CHANGE_KEY   0x00003f    program     static E:\homework\S05.X\newpic_8b_simple.asm
+             ONE_CONTINUE   0x00007d    program     static E:\homework\S05.X\newpic_8b_simple.asm
+    ONE_CONTINUE_CONTIUNE   0x000085    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               ONE_TO_ONE   0x000073    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              ONE_TO_ZERO   0x00004f    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                   OUTPUT   0x000239    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                  PUT_KEY   0x000176    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                RESET_KEY   0x0001f6    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                 RST_PORT   0x000217    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                   SELECT   0x00012f    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              SHORT_PRESS   0x00008b    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                    START   0x000245    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                 TABLENUM   0x000020    program     static E:\homework\S05.X\newpic_8b_simple.asm
+            ZERO_CONTINUE   0x00005e    program     static E:\homework\S05.X\newpic_8b_simple.asm
+   ZERO_CONTINUE_CONTIUNE   0x000069    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              ZERO_TO_ONE   0x000051    program     static E:\homework\S05.X\newpic_8b_simple.asm
+             ZERO_TO_ZERO   0x000055    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                     loop   0x0002a7    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT0   0x000620       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT1   0x000621       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT2   0x000622       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT3   0x000623       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT4   0x000624       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT5   0x000625       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT6   0x000626       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT7   0x000627       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT8   0x000628       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT9   0x000629       data     static E:\homework\S05.X\newpic_8b_simple.asm
+            CURRENT_COUNT   0x00007f       data     static E:\homework\S05.X\newpic_8b_simple.asm
+               KEY_BEFORE   0x000076       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                KEY_FINAL   0x000075       data     static E:\homework\S05.X\newpic_8b_simple.asm
+              KEY_FINAL16   0x000636       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                  L1_LONG   0x00007c       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                  L2_LONG   0x00007d       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                  L3_LONG   0x00007e       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                    M_CNT   0x000079       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                    N_CNT   0x00007a       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   R_LONG   0x00007b       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                    STATE   0x000077       data     static E:\homework\S05.X\newpic_8b_simple.asm
+             STATE_BEFORE   0x000078       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                     TYPE   0x00062a       data     static E:\homework\S05.X\newpic_8b_simple.asm
+              TYPE_BEFORE   0x00062b       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                      col   0x000633       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                    count   0x00062c       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                 counter0   0x000631       data     static E:\homework\S05.X\newpic_8b_simple.asm
+              counter_col   0x000635       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                counter_n   0x000630       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                    delay   0x00062d       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                      key   0x00062e       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                 key_temp   0x00062f       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                     port   0x000074       data     static E:\homework\S05.X\newpic_8b_simple.asm
+               portb_read   0x000634       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                      row   0x000632       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                     set1   0x000070       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                     set2   0x000071       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                     set3   0x000072       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                     set4   0x000073       data     static E:\homework\S05.X\newpic_8b_simple.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                 TABLENUM   0x000020    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                   ACTION   0x00002b    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               CHANGE_KEY   0x000034    program     static E:\homework\S05.X\newpic_8b_simple.asm
+            NO_CHANGE_KEY   0x00003f    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                  INEQUAL   0x000045    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                    EQUAL   0x00004a    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              ONE_TO_ZERO   0x00004f    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              ZERO_TO_ONE   0x000051    program     static E:\homework\S05.X\newpic_8b_simple.asm
+             ZERO_TO_ZERO   0x000055    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              CLEAR_M_CNT   0x00005b    program     static E:\homework\S05.X\newpic_8b_simple.asm
+            ZERO_CONTINUE   0x00005e    program     static E:\homework\S05.X\newpic_8b_simple.asm
+             DOUBLE_PRESS   0x000063    program     static E:\homework\S05.X\newpic_8b_simple.asm
+   ZERO_CONTINUE_CONTIUNE   0x000069    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               LONG_PRESS   0x00006f    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               ONE_TO_ONE   0x000073    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              CLEAR_N_CNT   0x00007a    program     static E:\homework\S05.X\newpic_8b_simple.asm
+             ONE_CONTINUE   0x00007d    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                ADD_M_CNT   0x000082    program     static E:\homework\S05.X\newpic_8b_simple.asm
+    ONE_CONTINUE_CONTIUNE   0x000085    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              SHORT_PRESS   0x00008b    program     static E:\homework\S05.X\newpic_8b_simple.asm
+        NO_CHANGE_KEL_END   0x00008f    program     static E:\homework\S05.X\newpic_8b_simple.asm
+             COUNT_CHANGE   0x000092    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              CHANGE_TYPE   0x000099    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                COUNT_ONE   0x0000c4    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                COUNT_TWO   0x0000c9    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              COUNT_THREE   0x0000ce    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               COUNT_FOUR   0x0000d3    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               COUNT_FIVE   0x0000d8    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                COUNT_SIX   0x0000dd    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              COUNT_SEVEN   0x0000e2    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              COUNT_EIGHT   0x0000e7    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               COUNT_NINE   0x0000ec    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                COUNT_TEN   0x0000f1    program     static E:\homework\S05.X\newpic_8b_simple.asm
+         COUNT_CHANGE_END   0x0000f6    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                  DISPLAY   0x0000f7    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                LIGHTNING   0x0000fc    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              DISPALY_KEY   0x000102    program     static E:\homework\S05.X\newpic_8b_simple.asm
+              DISPALY_END   0x000115    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                   CHANGE   0x000117    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                CHECKSAME   0x00011c    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                 MAKE_KEY   0x000122    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                  FINDKEY   0x000126    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                   INPUT3   0x00012c    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                   SELECT   0x00012f    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                CLEAN_KEY   0x000136    program     static E:\homework\S05.X\newpic_8b_simple.asm
+               CLEAN_KEY1   0x00013c    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                   CHECK2   0x000140    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                CHECK_KEY   0x000153    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                  PUT_KEY   0x000176    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                 GET_COL0   0x000181    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                 GET_COL1   0x00019c    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                 GET_COL2   0x0001b9    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                 GET_COL3   0x0001d5    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                RESET_KEY   0x0001f6    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                  GET_KEY   0x000202    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                DELAY_LED   0x000211    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                 RST_PORT   0x000217    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                     LED1   0x00021a    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                     LED2   0x000221    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                     LED3   0x000228    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                     LED4   0x000230    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                   OUTPUT   0x000239    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                    START   0x000245    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                     loop   0x0002a7    program     static E:\homework\S05.X\newpic_8b_simple.asm
+                     set1   0x000070       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                     set2   0x000071       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                     set3   0x000072       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                     set4   0x000073       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                     port   0x000074       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                KEY_FINAL   0x000075       data     static E:\homework\S05.X\newpic_8b_simple.asm
+               KEY_BEFORE   0x000076       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                    STATE   0x000077       data     static E:\homework\S05.X\newpic_8b_simple.asm
+             STATE_BEFORE   0x000078       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                    M_CNT   0x000079       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                    N_CNT   0x00007a       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   R_LONG   0x00007b       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                  L1_LONG   0x00007c       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                  L2_LONG   0x00007d       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                  L3_LONG   0x00007e       data     static E:\homework\S05.X\newpic_8b_simple.asm
+            CURRENT_COUNT   0x00007f       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT0   0x000620       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT1   0x000621       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT2   0x000622       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT3   0x000623       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT4   0x000624       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT5   0x000625       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT6   0x000626       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT7   0x000627       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT8   0x000628       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                   COUNT9   0x000629       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                     TYPE   0x00062a       data     static E:\homework\S05.X\newpic_8b_simple.asm
+              TYPE_BEFORE   0x00062b       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                    count   0x00062c       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                    delay   0x00062d       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                      key   0x00062e       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                 key_temp   0x00062f       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                counter_n   0x000630       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                 counter0   0x000631       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                      row   0x000632       data     static E:\homework\S05.X\newpic_8b_simple.asm
+                      col   0x000633       data     static E:\homework\S05.X\newpic_8b_simple.asm
+               portb_read   0x000634       data     static E:\homework\S05.X\newpic_8b_simple.asm
+              counter_col   0x000635       data     static E:\homework\S05.X\newpic_8b_simple.asm
+              KEY_FINAL16   0x000636       data     static E:\homework\S05.X\newpic_8b_simple.asm
+
+
